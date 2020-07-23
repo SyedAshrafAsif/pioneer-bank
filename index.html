@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pioneer Bank</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="javascriptCodes.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -60,57 +61,6 @@
             </div>
         </div>
     </div>
-    <script>
-        //login button event handler
-        const loginBtn = document.getElementById('login');
-        loginBtn.addEventListener('click', function(){
-            const loginArea = document.getElementById('login-area');
-            loginArea.style.display = "none";
-            const transactionArea = document.getElementById('transaction-area');
-            transactionArea.style.display = "block";
-        })
-        
-        //deposit button event handler
-        const depositBtn = document.getElementById('deposit-btn');
-        depositBtn.addEventListener('click', function(){
-            const depositNumber = getInputNumber('deposit-amount');
-
-            updateSpanText('current-deposit', depositNumber);
-            updateSpanText('current-balance', depositNumber);
-        })
-
-        //withdraw button event handler
-        const withdrawBtn = document.getElementById('withdraw-btn');
-        withdrawBtn.addEventListener('click', function(){
-            const withdrawNumber = getInputNumber('withdraw-amount');
-
-            updateSpanText('current-withdraw', withdrawNumber);
-            updateSpanText('current-balance', -1 * withdrawNumber);
-            document.getElementById('withdraw-amount').value = "";
-        })
-            
-        function getInputNumber(id){
-            const amount = document.getElementById(id).value;
-            const amountNumber = parseFloat(amount);
-            return amountNumber;
-        }    
-
-        function updateSpanText(id, depositNumber){
-            const currentAmount = document.getElementById(id).innerText;
-            const currentNumber = parseFloat(currentAmount);
-            const totalAmount = depositNumber + currentNumber;
-            document.getElementById(id).innerText = totalAmount;
-
-            document.getElementById('deposit-amount').value = "";
-        }
-
-
-    </script>
-     
-
-
-
-
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
